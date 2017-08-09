@@ -1,5 +1,5 @@
 (function (window) {
-  'use strict';
+    'use strict';
 
     function doRequest (method, url) {
         return new Promise(function (resolve, reject) {

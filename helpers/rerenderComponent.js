@@ -1,21 +1,21 @@
 (function (window) {
-  'use strict';
+    'use strict';
 
     function rerenderComponent(component) {
         const activeElementName = document.activeElement.getAttribute('name');
-    	const container = document.getElementById(component);
-    	const initedComponent = window.initedComponents[component];
+        const container = document.getElementById(component);
+        const initedComponent = window.initedComponents[component];
 
-    	const neededStore = initedComponent.rerenderProps;
-		const state = {};
+        const neededStore = initedComponent.rerenderProps;
+        const state = {};
 
-		neededStore.forEach(segment => {
-			state[segment] = window.store[segment];
-		});
+        neededStore.forEach(segment => {
+            state[segment] = window.store[segment];
+        });
 
-		const view = initedComponent.view(state);
+        const view = initedComponent.view(state);
 
-		container.innerHTML = view;
+        container.innerHTML = view;
 
         Promise.resolve().then(() => {
             const renderedElem = document.querySelector(`[name=${activeElementName}]`);
